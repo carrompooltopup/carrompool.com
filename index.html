@@ -60,6 +60,7 @@
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
+            margin-top: 10px; /* Margin for spacing */
         }
 
         .buy-now {
@@ -72,6 +73,10 @@
 
         .verify {
             background-color: #4caf50;
+        }
+
+        .back {
+            background-color: #f44336; /* Red color for back button */
         }
 
         .container {
@@ -178,14 +183,43 @@
         <div class="product">
             <img src="https://i.ibb.co/d092sxC/Picsart-24-10-20-12-32-24-979.png" alt="Product 1">
             <h3>Inferno Striker💚</h3>
-            <p>Price: 110 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(110)">Buy Now</button>
+            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ২০০</div>
+            <p>Price: 95 BDT</p>
+            <button class="button buy-now" onclick="showUserIdForm(95)">Buy Now</button>
         </div>
         <div class="product">
             <img src="https://i.ibb.co/4m78c6F/Picsart-24-10-20-12-30-00-471.png" alt="Product 2">
             <h3>Carrom pass🩵</h3>
-            <p>Price: 180 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(180)">Buy Now</button>
+            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ২৫০</div>
+            <p>Price: 130 BDT</p>
+            <button class="button buy-now" onclick="showUserIdForm(130)">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://i.ibb.co/4m78c6F/Picsart-24-10-20-12-30-00-471.png" alt="Product 2">
+            <h3>Carrom pass plus➕</h3>
+            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৫০০</div>
+            <p>Price: 200 BDT</p>
+            <button class="button buy-now" onclick="showUserIdForm(200)">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://i.ibb.co.com/F4VWzf1/Picsart-24-10-21-01-25-38-238.jpg" alt="Product 2">
+            <h3> 9 pic Golden Shorts💛</h3>
+            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৩৫০</div>
+            <p>Price: 99 BDT</p>
+            <button class="button buy-now" onclick="showUserIdForm(99)">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://i.ibb.co/4m78c6F/Picsart-24-10-20-12-30-00-471.png" alt="Product 3">
+            <h3>10,000  Gems 💎</h3>
+            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৪৫০</div>
+            <p>Price: 123 BDT</p>
+            <button class="button buy-now" onclick="showUserIdForm(123)">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://i.ibb.co.com/7N2DsMt/Picsart-24-10-21-14-17-32-087.jpg" alt="Product 3">
+            <h3>৭ কোটি কয়েন🪙</h3>
+           <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৪০০</div> <p>Price: 117 BDT</p>
+            <button class="button buy-now" onclick="showUserIdForm(117)">Buy Now</button>
         </div>
     </div>
 
@@ -193,6 +227,7 @@
         <h2>Carrom User ID লিখুন</h2>
         <input type="text" placeholder="Carrom User ID দিন" id="userIdInput">
         <button class="button submit" onclick="submitUserId()">Submit</button>
+        <button class="button back" onclick="goBack('userIdForm')">Back</button> <!-- Back button added -->
     </div>
 
     <div class="payment-container" id="paymentForm">
@@ -208,6 +243,7 @@
             </p>
         </div>
         <button class="button verify" onclick="verifyPayment()">VERIFY</button>
+        <button class="button back" onclick="goBack('paymentForm')">Back</button> <!-- Back button added -->
 
         <div class="loading" id="loading">
             <img src="https://i.ibb.co/bX3CvGg/rotate.gif" alt="Loading">
@@ -235,6 +271,10 @@
         function showUserIdForm(amount) {
             currentAmount = amount;
             document.getElementById('userIdForm').classList.add('active');
+            const products = document.querySelectorAll('.product-list .product');
+            products.forEach(product => {
+                product.style.display = 'none'; // Hide products when form is shown
+            });
         }
 
         function submitUserId() {
@@ -242,25 +282,45 @@
             if (userId) {
                 document.getElementById('userIdForm').classList.remove('active');
                 document.getElementById('paymentForm').classList.add('active');
-                document.getElementById('amountText').textContent = `Amount: ${currentAmount} BDT`;
+                document.getElementById('amountText').innerText = `আপনার মোট পরিমাণ: ${currentAmount} BDT`;
             } else {
-                alert('Please enter a valid User ID.');
+                alert("অনুগ্রহ করে একটি ইউজার আইডি লিখুন।");
+            }
+        }
+
+        function verifyPayment() {
+            const transactionId = document.getElementById('transactionId').value;
+            if (transactionId) {
+                // Payment verification logic can be added here
+                alert("পেমেন্ট সফলভাবে যাচাই করা হয়েছে!");
+                document.getElementById('paymentForm').classList.remove('active');
+                const products = document.querySelectorAll('.product-list .product');
+                products.forEach(product => {
+                    product.style.display = 'block'; // Show products again
+                });
+            } else {
+                alert("অনুগ্রহ করে একটি ট্রানজেকশন আইডি লিখুন।");
             }
         }
 
         function copyNumber() {
-            navigator.clipboard.writeText('01581050857');
-            alert('Number copied!');
+            const number = "01581050857";
+            navigator.clipboard.writeText(number).then(() => {
+                alert("নম্বর কপি করা হয়েছে: " + number);
+            });
         }
 
-        function verifyPayment() {
-            const loading = document.getElementById('loading');
-            loading.style.display = 'block';
-
-            setTimeout(() => {
-                loading.style.display = 'none';
-                alert('Sorry, the transaction ID is incorrect.');
-            }, 3000);
+        function goBack(formId) {
+            if (formId === 'userIdForm') {
+                document.getElementById('userIdForm').classList.remove('active');
+                const products = document.querySelectorAll('.product-list .product');
+                products.forEach(product => {
+                    product.style.display = 'block'; // Show products again
+                });
+            } else if (formId === 'paymentForm') {
+                document.getElementById('paymentForm').classList.remove('active');
+                document.getElementById('userIdForm').classList.add('active'); // Show user ID form again
+            }
         }
     </script>
 
