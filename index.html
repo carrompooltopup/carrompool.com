@@ -289,19 +289,23 @@
         }
 
         function verifyPayment() {
-            const transactionId = document.getElementById('transactionId').value;
-            if (transactionId) {
-                // Payment verification logic can be added here
-                alert("দুঃখিত,আপনার দেওয়া ট্রানজেকশন আইডি সঠিক নয় !");
-                document.getElementById('paymentForm').classList.remove('active');
-                const products = document.querySelectorAll('.product-list .product');
-                products.forEach(product => {
-                    product.style.display = 'block'; // Show products again
-                });
-            } else {
-                alert("অনুগ্রহ করে একটি ট্রানজেকশন আইডি লিখুন।");
-            }
+    const transactionId = document.getElementById('transactionId').value;
+    if (transactionId) {
+        if (transactionId === 'BJL5M3KFCN') {
+            alert("Congratulations 🎉");
+        } else {
+            alert("দুঃখিত, আপনার দেওয়া ট্রানজেকশন আইডি সঠিক নয় !");
         }
+        document.getElementById('paymentForm').classList.remove('active');
+        const products = document.querySelectorAll('.product-list .product');
+        products.forEach(product => {
+            product.style.display = 'block'; // Show products again
+        });
+    } else {
+        alert("অনুগ্রহ করে একটি ট্রানজেকশন আইডি লিখুন।");
+    }
+}
+
 
         function copyNumber() {
             const number = "01581050857";
