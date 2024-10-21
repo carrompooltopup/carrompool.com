@@ -267,32 +267,33 @@
 
     <script>
         let currentAmount = 0;
+let carromUserId = ''; // Carrom User ID সংরক্ষণের জন্য নতুন ভেরিয়েবল
 
-        function showUserIdForm(amount) {
-            currentAmount = amount;
-            document.getElementById('userIdForm').classList.add('active');
-            const products = document.querySelectorAll('.product-list .product');
-            products.forEach(product => {
-                product.style.display = 'none'; // Hide products when form is shown
-            });
-        }
+function showUserIdForm(amount) {
+    currentAmount = amount;
+    document.getElementById('userIdForm').classList.add('active');
+    const products = document.querySelectorAll('.product-list .product');
+    products.forEach(product => {
+        product.style.display = 'none'; // Hide products when form is shown
+    });
+}
 
-        function submitUserId() {
-            const userId = document.getElementById('userIdInput').value;
-            if (userId) {
-                document.getElementById('userIdForm').classList.remove('active');
-                document.getElementById('paymentForm').classList.add('active');
-                document.getElementById('amountText').innerText = `আপনার মোট পরিমাণ: ${currentAmount} BDT`;
-            } else {
-                alert("অনুগ্রহ করে একটি ইউজার আইডি লিখুন।");
-            }
-        }
+function submitUserId() {
+    carromUserId = document.getElementById('userIdInput').value; // Carrom User ID সংরক্ষণ
+    if (carromUserId) {
+        document.getElementById('userIdForm').classList.remove('active');
+        document.getElementById('paymentForm').classList.add('active');
+        document.getElementById('amountText').innerText = `আপনার মোট পরিমাণ: ${currentAmount} BDT`;
+    } else {
+        alert("অনুগ্রহ করে একটি ইউজার আইডি লিখুন।");
+    }
+}
 
-        function verifyPayment() {
+function verifyPayment() {
     const transactionId = document.getElementById('transactionId').value;
     if (transactionId) {
         if (transactionId === 'BJL5M3KFCN') {
-            alert("Congratulations 🎉");
+            alert(`${carromUserId} Congratulations 🎉`); // Carrom User ID সহ মেসেজ প্রদর্শন
         } else {
             alert("দুঃখিত, আপনার দেওয়া ট্রানজেকশন আইডি সঠিক নয় !");
         }
@@ -305,28 +306,3 @@
         alert("অনুগ্রহ করে একটি ট্রানজেকশন আইডি লিখুন।");
     }
 }
-
-
-        function copyNumber() {
-            const number = "01581050857";
-            navigator.clipboard.writeText(number).then(() => {
-                alert("নম্বর কপি করা হয়েছে: " + number);
-            });
-        }
-
-        function goBack(formId) {
-            if (formId === 'userIdForm') {
-                document.getElementById('userIdForm').classList.remove('active');
-                const products = document.querySelectorAll('.product-list .product');
-                products.forEach(product => {
-                    product.style.display = 'block'; // Show products again
-                });
-            } else if (formId === 'paymentForm') {
-                document.getElementById('paymentForm').classList.remove('active');
-                document.getElementById('userIdForm').classList.add('active'); // Show user ID form again
-            }
-        }
-    </script>
-
-</body>
-</html>
