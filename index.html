@@ -1,358 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrom Pool</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ffcc00, #ff6699);
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ওয়েবসাইট আপডেট চলছে</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        .header {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        .header h1 {
-            display: inline;
-        }
+    .container {
+      animation: fadeIn 2s ease-in-out;
+      padding: 20px;
+    }
 
-        .header img {
-            width: 30px;
-            vertical-align: middle;
-            margin-left: 5px;
-            margin-bottom: 5px;
-        }
+    .animation {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
 
-        .product-list {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 30px;
-        }
+    .animation span {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #ff6b6b;
+      animation: wave 1.2s infinite;
+      margin: 0 5px;
+    }
 
-        .product {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 200px;
-        }
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 10px;
+      animation: bounce 2s infinite;
+    }
 
-        .product img {
-            max-width: 100%;
-            height: 150px;
-            border-radius: 5px;
-        }
+    p {
+      font-size: 1.3rem;
+      margin: 10px 0;
+      opacity: 0.9;
+      animation: fadeIn 3s ease-in-out;
+    }
 
-        .button {
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px; /* Margin for spacing */
-        }
+    .countdown {
+      margin-top: 15px;
+      font-size: 1.5rem;
+      color: #00e676;
+      font-weight: bold;
+    }
 
-        .buy-now {
-            background-color: #007bff;
-        }
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-        .submit {
-            background-color: #ff9800;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-        .verify {
-            background-color: #4caf50;
-        }
-
-        .back {
-            background-color: #f44336; /* Red color for back button */
-        }
-
-        .container {
-            display: none;
-            background-color: #e0f7fa;
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 50px auto;
-        }
-
-        .container.active {
-            display: block;
-        }
-
-        .payment-container {
-            display: none;
-            background-color: #b71c1c;
-            color: white;
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 50px auto;
-            position: relative;
-        }
-
-        .payment-container.active {
-            display: block;
-        }
-
-        .loading {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .loading img {
-            width: 50px;
-            height: 50px;
-        }
-
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .copy-btn {
-            background-color: white;
-            color: #b71c1c;
-            border: none;
-            padding: 5px 10px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 3px;
-            margin-left: 5px;
-        }
-
-        .footer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .footer button {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-            gap: 10px;
-        }
-
-        .footer img {
-            width: 24px;
-            height: 24px;
-        }
-
-        .footer button:hover {
-            opacity: 0.8;
-        }
-    </style>
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>Carrom Pool</h1>
-        <img src="https://i.ibb.co/5FZ6HmM/12559876.png" alt="Verification Logo">
+  <div class="container">
+    <div class="animation">
+      <span>U</span><span>P</span><span>D</span><span>A</span><span>T</span><span>E</span>
     </div>
+    <h1>আপডেটের কাজ চলছে...</h1>
+    <p>এই মুহূর্তে ওয়েবসাইট বন্ধ আছে।</p>
+    <p>২২ অক্টোবর রাত ১১:০০ টায় পুনরায় চালু হবে ওয়েবসাইট।</p>
+    <div class="countdown" id="countdown"></div>
+  </div>
 
-    <div class="product-list">
-        <div class="product">
-            <img src="https://i.ibb.co/d092sxC/Picsart-24-10-20-12-32-24-979.png" alt="Product 1">
-            <h3>Inferno Striker💚</h3>
-            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ২০০</div>
-            <p>Price: 95 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(95)">Buy Now</button>
-        </div>
-        <div class="product">
-            <img src="https://i.ibb.co/4m78c6F/Picsart-24-10-20-12-30-00-471.png" alt="Product 2">
-            <h3>Carrom pass🩵</h3>
-            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ২৫০</div>
-            <p>Price: 130 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(130)">Buy Now</button>
-        </div>
-        <div class="product">
-            <img src="https://i.ibb.co/4m78c6F/Picsart-24-10-20-12-30-00-471.png" alt="Product 2">
-            <h3>Carrom pass plus➕</h3>
-            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৫০০</div>
-            <p>Price: 200 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(200)">Buy Now</button>
-        </div>
-        <div class="product">
-            <img src="https://i.ibb.co.com/F4VWzf1/Picsart-24-10-21-01-25-38-238.jpg" alt="Product 2">
-            <h3> 9 pic Golden Shorts💛</h3>
-            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৩৫০</div>
-            <p>Price: 99 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(99)">Buy Now</button>
-        </div>
-        <div class="product">
-            <img src="https://i.ibb.co/4m78c6F/Picsart-24-10-20-12-30-00-471.png" alt="Product 3">
-            <h3>10,000  Gems 💎</h3>
-            <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৪৫০</div>
-            <p>Price: 123 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(123)">Buy Now</button>
-        </div>
-        <div class="product">
-            <img src="https://i.ibb.co.com/7N2DsMt/Picsart-24-10-21-14-17-32-087.jpg" alt="Product 3">
-            <h3>৭ কোটি কয়েন🪙</h3>
-           <div style="font-family: Arial, sans-serif; text-decoration: line-through; font-size: 12px;">৳ ৮৫০</div> <p> -85% Price: 127 BDT</p>
-            <button class="button buy-now" onclick="showUserIdForm(127)">Buy Now</button>
-        </div>
-    </div>
+  <script>
+    // Timer Function
+    function countdownTimer() {
+      const targetDate = new Date("2024-10-22T23:00:00").getTime(); // রাত ১১:০০
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
 
-    <div class="container" id="userIdForm">
-        <h2>Carrom User ID লিখুন</h2>
-        <input type="text" placeholder="Carrom User ID দিন" id="userIdInput">
-        <button class="button submit" onclick="submitUserId()">Submit</button>
-        <button class="button back" onclick="goBack('userIdForm')">Back</button> <!-- Back button added -->
-    </div>
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    <div class="payment-container" id="paymentForm">
-        <h2>ট্রানজেকশন আইডি দিন</h2>
-        <input type="text" placeholder="ট্রানজেকশন আইডি দিন" id="transactionId">
-        <p id="amountText"></p>
-        <div class="instructions">
-            <p>• <strong>*167#</strong> ডায়াল করে বা নগদ এপস্য থেকে সেন্ডমানি করতে হবে।</p>
-            <p>• টাকা পাঠিয়ে উপরের বক্সে ট্রানজেকশন আইডি দিয়ে Verify এ ক্লিক করুন।</p>
-            <p>• শুধু মাত্র বিকাশ এবং নগদ এ টাকা পাঠাতে পারবেন।</p>
-            <p>• Nagad/Bkash: <strong>01581050857</strong>
-                <button class="copy-btn" onclick="copyNumber()">Copy</button>
-            </p>
-        </div>
-        <button class="button verify" onclick="verifyPayment()">Verify</button>
-        <button class="button back" onclick="goBack('paymentForm')">Back</button>
-        <div class="loading" id="loading">
-            <img src="https://i.ibb.co/YfFr9Yt/loading.gif" alt="Loading...">
-        </div>
-    </div>
+      document.getElementById("countdown").innerText = 
+        `শুধু ${hours} ঘন্টা ${minutes} মিনিট ${seconds} সেকেন্ড বাকি!`;
 
-    <div class="footer">
-        <a href="https://xmostafizur.github.io/Prove-/" target="_blank">
-            <button>
-                <img src="https://i.ibb.co/cCXyNwg/14255746.png" alt="Icon 1">
-                Live prove
-            </button>
-        </a>
-        <a href="https://wa.me/+8801581050857" target="_blank">
-            <button>
-                <img src="https://i.ibb.co/MNDskzJ/2936956.png" alt="Icon 3">
-                Live Chat
-            </button>
-        </a>
-    </div>
-    <div class="footer">
-        <a href="https://carrompooltopup.github.io/website/" target="_blank">
-            <button>
-                <img src="https://i.ibb.co.com/vkp3nbt/notification.gif" alt="Icon 2">
-                 
-            </button>
-        </a>
-    </div>
-
-    <script>
-        let currentAmount = 0;
-let carromUserId = ''; // Carrom User ID সংরক্ষণের জন্য নতুন ভেরিয়েবল
-
-function showUserIdForm(amount) {
-    currentAmount = amount;
-    document.getElementById('userIdForm').classList.add('active');
-    const products = document.querySelectorAll('.product-list .product');
-    products.forEach(product => {
-        product.style.display = 'none'; // Hide products when form is shown
-    });
-}
-
-function submitUserId() {
-    carromUserId = document.getElementById('userIdInput').value; // Carrom User ID সংরক্ষণ
-    if (carromUserId) {
-        document.getElementById('userIdForm').classList.remove('active');
-        document.getElementById('paymentForm').classList.add('active');
-        document.getElementById('amountText').innerText = `আপনার মোট পরিমাণ: ${currentAmount} BDT`;
-    } else {
-        alert("অনুগ্রহ করে একটি ইউজার আইডি লিখুন।");
+      if (timeLeft < 0) {
+        document.getElementById("countdown").innerText = "ওয়েবসাইট চালু হয়েছে!";
+      }
     }
-}
 
-function verifyPayment() {
-    const transactionId = document.getElementById('transactionId').value;
-    if (transactionId) {
-        if (transactionId === 'BJL5M3KFCN') {
-            alert(`প্রিয়,${carromUserId} আপনি প্রডাক্ট টি পেয়েছেন আপনার আইডি চেক করুন`); // Carrom User ID সহ মেসেজ প্রদর্শন
-        } else {
-            alert("দুঃখিত, আপনার দেওয়া ট্রানজেকশন আইডি সঠিক নয় !");
-        }
-        document.getElementById('paymentForm').classList.remove('active');
-        const products = document.querySelectorAll('.product-list .product');
-        products.forEach(product => {
-            product.style.display = 'block'; // Show products again
-        });
-    } else {
-        alert("অনুগ্রহ করে একটি ট্রানজেকশন আইডি লিখুন।");
-    }
-}
+    // Timer Update Every Second
+    setInterval(countdownTimer, 1000);
 
-
-        function verifyPayment() {
-    const transactionId = document.getElementById('transactionId').value;
-    if (transactionId) {
-        if (transactionId === 'BJM1MTOBTV') {
-            alert(`${carromUserId} ←এই আইডিতে আপনার প্রডাক্ট পেয়েগেছেন দয়া করে চেক করে দেখুন`); // Carrom User ID সহ মেসেজ প্রদর্শন
-        } else {
-            alert("দুঃখিত, আপনার দেওয়া ট্রানজেকশন আইডি সঠিক নয় !");
-        }
-        document.getElementById('paymentForm').classList.remove('active');
-        const products = document.querySelectorAll('.product-list .product');
-        products.forEach(product => {
-            product.style.display = 'block'; // Show products again
-        });
-    } else {
-        alert("অনুগ্রহ করে একটি ট্রানজেকশন আইডি লিখুন।");
-    }
-}
-
-        function copyNumber() {
-            const number = "01581050857";
-            navigator.clipboard.writeText(number).then(() => {
-                alert("নম্বর কপি করা হয়েছে: " + number);
-            });
-        }
-
-        function goBack(formId) {
-            if (formId === 'userIdForm') {
-                document.getElementById('userIdForm').classList.remove('active');
-                const products = document.querySelectorAll('.product-list .product');
-                products.forEach(product => {
-                    product.style.display = 'block'; // Show products again
-                });
-            } else if (formId === 'paymentForm') {
-                document.getElementById('paymentForm').classList.remove('active');
-                document.getElementById('userIdForm').classList.add('active'); // Show user ID form again
-            }
-        }
-    </script>
-
+    // Message Update After 5 Seconds
+    setTimeout(() => {
+      document.querySelector('p').innerText = "আমাদের সাথে থাকার জন্য ধন্যবাদ!";
+    }, 5000);
+  </script>
 </body>
-    </html>
+</html>
