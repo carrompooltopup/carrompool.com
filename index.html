@@ -1,119 +1,161 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ওয়েবসাইট আপডেট চলছে</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Offer - 7 PM Special</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-    }
+        body {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            animation: backgroundChange 10s infinite alternate;
+        }
 
-    .container {
-      animation: fadeIn 2s ease-in-out;
-      padding: 20px;
-    }
+        @keyframes backgroundChange {
+            0% { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
+            50% { background: linear-gradient(135deg, #b2dfdb, #80cbc4); }
+            100% { background: linear-gradient(135deg, #c2e9fb, #a1c4fd); }
+        }
 
-    .animation {
-      display: inline-block;
-      margin-bottom: 20px;
-    }
+        .offer-container {
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            animation: float 4s ease-in-out infinite;
+        }
 
-    .animation span {
-      font-size: 4rem;
-      font-weight: bold;
-      color: #ff6b6b;
-      animation: wave 1.2s infinite;
-      margin: 0 5px;
-    }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 10px;
-      animation: bounce 2s infinite;
-    }
+        h1 {
+            font-size: 2.5rem;
+            color: #004d40;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            animation: textGlow 3s infinite alternate;
+        }
 
-    p {
-      font-size: 1.3rem;
-      margin: 10px 0;
-      opacity: 0.9;
-      animation: fadeIn 3s ease-in-out;
-    }
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px #81d4fa; }
+            100% { text-shadow: 0 0 20px #00acc1; }
+        }
 
-    .countdown {
-      margin-top: 15px;
-      font-size: 1.5rem;
-      color: #00e676;
-      font-weight: bold;
-    }
+        .offer-details {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            color: #004d40;
+        }
 
-    @keyframes wave {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+        .countdown {
+            font-size: 1.5rem;
+            color: #00796b;
+            margin: 20px;
+            animation: pulse 1.5s infinite;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-  </style>
+        .offer-button {
+            background: linear-gradient(45deg, #66bb6a, #43a047);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        .offer-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .offer-button:hover {
+            background: linear-gradient(45deg, #43a047, #66bb6a);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="animation">
-      <span>U</span><span>P</span><span>D</span><span>A</span><span>T</span><span>E</span>
+    <div class="offer-container">
+        <h1>⚡এই মাসের অফার আজকে পাবেন ⚡</h1>
+        <p class="offer-details">
+            মাত্র <span style="font-weight: bold; color: #00796b;">৮০ টাকায়</span> - 
+            পাবেন<span style="font-weight: bold;">৫,০০০💎 ডাইমন্ড</span> এবং 
+            <span style="font-weight: bold;">৬ মিলিয়ন🪙 কয়েন</span>! 
+            শুধুমাত্র <strong>প্রথম ১০০ জন</strong> পাবে।
+        </p>
+        <p class="countdown" id="countdown">অফার শুরু হচ্ছে...</p>
+        <button class="offer-button">সন্ধ্যা ৭ টায় চালু হবে অফারটি</button>
     </div>
-    <h1>আপডেটের কাজ চলছে...</h1>
-    <p>এই মুহূর্তে ওয়েবসাইট বন্ধ আছে।</p>
-    <p>২৬ অক্টোবর বিকাল ৫:০০ টায় পুনরায় চালু হবে ওয়েবসাইট।</p>
-    <div class="countdown" id="countdown"></div>
-  </div>
 
-  <script>
-    // Timer Function
-    function countdownTimer() {
-      const targetDate = new Date("2024-10-26T17:00:00").getTime(); // বিকাল ০৫:০০
-      const now = new Date().getTime();
-      const timeLeft = targetDate - now;
+    <script>
+        const countdownElement = document.getElementById('countdown');
 
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        function startCountdown(targetTime) {
+            function updateCountdown() {
+                const now = new Date();
+                const difference = targetTime - now;
 
-      document.getElementById("countdown").innerText = 
-        `শুধু ${hours} ঘন্টা ${minutes} মিনিট ${seconds} সেকেন্ড বাকি!`;
+                if (difference <= 0) {
+                    countdownElement.textContent = "⏰ অফার শুরু হয়েছে!";
+                    clearInterval(intervalId);
+                    return;
+                }
 
-      if (timeLeft < 0) {
-        document.getElementById("countdown").innerText = "ওয়েবসাইট চালু হয়েছে!";
-      }
-    }
+                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((difference / (1000 * 60)) % 60);
+                const seconds = Math.floor((difference / 1000) % 60);
 
-    // Timer Update Every Second
-    setInterval(countdownTimer, 1000);
+                countdownElement.textContent = 
+                    `${hours} ঘন্টা ${minutes} মিনিট ${seconds} সেকেন্ড`;
+            }
 
-    // Message Update After 5 Seconds
-    setTimeout(() => {
-      document.querySelector('p').innerText = "আমাদের সাথে থাকার জন্য ধন্যবাদ!";
-    }, 5000);
-  </script>
+            const intervalId = setInterval(updateCountdown, 1000);
+        }
+
+        const targetTime = new Date();
+        targetTime.setHours(19, 0, 0, 0);  // 7:00 PM
+        startCountdown(targetTime);
+    </script>
 </body>
 </html>
