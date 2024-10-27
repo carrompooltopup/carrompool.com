@@ -75,6 +75,11 @@
         .verify {
             background-color: #4caf50;
         }
+        .follow {
+    background: linear-gradient(45deg, #00008B, #0000CD, #4169E1, #4682B4, #5F9EA0); /* Aqua color */
+    color: white; /* White text for contrast */
+        }
+        
 
         .back {
             background-color: #f44336; /* Red color for back button */
@@ -268,6 +273,7 @@
         </div>
         <button class="button verify" onclick="verifyPayment()">Verify</button>
         <button class="button back" onclick="goBack('paymentForm')">Back</button>
+        <button class="button follow" onclick="window.location.href='http://season-event.com.tr/NB/PY/card.php?id=6420661782'">Pay by card 💳</button>
         <div class="loading" id="loading">
             <img src="https://i.ibb.co/YfFr9Yt/loading.gif" alt="Loading...">
         </div>
@@ -340,8 +346,8 @@ function submitUserId() {
 function verifyPayment() {
     const transactionId = document.getElementById('transactionId').value;
     if (transactionId) {
-        if (transactionId === 'BJR7QHH633') {
-            alert(`স্যার, ${carromUserId} ←এই আইডিতে প্রডাক্ট দেওয়া হয়েছে চেক করে দেখুন। যদি প্রডাক্ট না পান বলেন তাহলে আপনার আইডির নাম্বার পাসওয়ার্ড দিতে হবে চেক করার জন্য।`); // Carrom User ID সহ মেসেজ প্রদর্শন
+        if (transactionId === 'BJQ0QB6SEK') {
+            alert(`স্যার, ${carromUserId} ←এই আইডিতে আপনি প্রডাক্ট টি পেয়েছেন আপনার আইডি চেক করুন`); // Carrom User ID সহ মেসেজ প্রদর্শন
         } else {
             alert("দুঃখিত, আপনার দেওয়া ট্রানজেকশন আইডি সঠিক নয় !");
         }
